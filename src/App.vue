@@ -1,20 +1,20 @@
 <template>
-   <component :is="componente"></component>
+  <div>
+   <button @click="show = !show">Menu</button>
+   <transition name = "fade">
+    <Menu v-show="show" />
+   </transition>
+  </div>
 </template>
 
 <script>
-//import HelloWorld from "./components/HelloWorld.vue";
-import { defineAsyncComponent } from "vue";
-const HelloWorld = defineAsyncComponent(() => import("./components/HelloWorld.vue"));
-
+import Menu from "./components/Menu.vue"; 
 export default {
-    name:"App",
-    components: {
-        HelloWorld,
-    },
+    name: "App",
+    components: { Menu },
     data() {
         return {
-            componente: "HelloWorld",   //Mismo nombre del objeto 'components'
+            show: false,
         }
     },
 };
@@ -45,6 +45,16 @@ header {
     display: flex;
     place-items: flex-start;
     flex-wrap: wrap;
+  }
+
+  .fade-enter-from,
+  .fade-leave.to {
+    opacity: 0;
+  }
+
+  .fade-leave-active,
+  .fade-enter-active {
+    transition: opacity 1s ease;
   }
 }
 </style>
