@@ -1,15 +1,17 @@
 <template>
-    <div>{{ counter }}</div>
+    <div>{{ obj }}</div>
 </template>
 
 <script>
-import { ref } from 'vue';
+//import { ref } from 'vue';
+import { reactive } from 'vue';
 export default {
     setup() {
-        const counter = ref(0);
-        setInterval(() => counter.value++, 1000);
+        //const counter = ref(0);
+        const obj = reactive({ counter: 0 });
+        setInterval(() => obj.counter++, 1000);
         return { 
-            counter,
+            obj,
         };
     },
 };
