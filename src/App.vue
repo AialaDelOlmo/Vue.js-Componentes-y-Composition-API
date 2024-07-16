@@ -1,23 +1,28 @@
 <template>
-   <component :is="componente"></component>
+    <div>{{ text }}</div>
 </template>
 
 <script>
-//import HelloWorld from "./components/HelloWorld.vue";
-import { defineAsyncComponent } from "vue";
-const HelloWorld = defineAsyncComponent(() => import("./components/HelloWorld.vue"));
 
 export default {
     name:"App",
-    components: {
-        HelloWorld,
-    },
+    
     data() {
         return {
-            componente: "HelloWorld",   //Mismo nombre del objeto 'components'
+            text: "Hola Vue",  
         }
     },
+    beforeCreate() {
+      console.log("El componente está siendo creado", this.$data, this.$el);
+    },
+    created() {
+      console.log("El componente ha sido creado", this.$data, this.$el);
+    },
+    mounted() {
+      console.log("El componente ha sido montado", this.$data, this.$el);
+    }
 };
+
 </script>
 
 <style scoped>
