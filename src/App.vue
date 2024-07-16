@@ -1,20 +1,19 @@
 <template>
-   <component :is="componente"></component>
+  <div>
+   <div> {{ text }}</div>
+   <div> {{ title }}</div>
+  </div>
 </template>
 
 <script>
-//import HelloWorld from "./components/HelloWorld.vue";
-import { defineAsyncComponent } from "vue";
-const HelloWorld = defineAsyncComponent(() => import("./components/HelloWorld.vue"));
+import base from "@/mixins/base"; //@ se refiere a la carpeta src
 
 export default {
     name:"App",
-    components: {
-        HelloWorld,
-    },
+    mixins: [base],
     data() {
         return {
-            componente: "HelloWorld",   //Mismo nombre del objeto 'components'
+          text: "Hola Vue",
         }
     },
 };
