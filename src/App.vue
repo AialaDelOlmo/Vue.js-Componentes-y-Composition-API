@@ -1,21 +1,14 @@
 <template>
-   <component :is="componente"></component>
+   <Home></Home>
 </template>
 
 <script>
-//import HelloWorld from "./components/HelloWorld.vue";
-import { defineAsyncComponent } from "vue";
-const HelloWorld = defineAsyncComponent(() => import("./components/HelloWorld.vue"));
+import Home from "@/components/Home.vue";
 
 export default {
     name:"App",
     components: {
-        HelloWorld,
-    },
-    data() {
-        return {
-            componente: "HelloWorld",   //Mismo nombre del objeto 'components'
-        }
+        Home, 
     },
 };
 </script>
